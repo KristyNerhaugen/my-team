@@ -56,7 +56,15 @@ const questions = () => {
             type: 'checkbox',
             name: 'role',
             message: 'What is your employee role? Please check one role. (Required)',
-            choices: ['Manager', 'Engineer', 'Intern']
+            choices: ['Manager', 'Engineer', 'Intern'],
+            validate: roleInput => {
+                if (roleInput) {
+                    return true;
+                } else {
+                    console.log('Please select your employee role.');
+                    return false;
+                }
+            }
         },
         // {
         //     // confirm Manager for office number
@@ -70,7 +78,15 @@ const questions = () => {
             type: 'input',
             name: 'officeNumber',
             message: "Please enter your office number. (Required)",
-            when: ({ confirmManager }) => confirmManager
+            when: ({ confirmManager }) => confirmManager,
+            validate: officeNumberInput => {
+                if (officeNumberInput) {
+                    return true;
+                } else {
+                    console.log('Please enter your office number.');
+                    return false;
+                }
+            }
         },
         // {
         //     // confirm Engineer for gitHub account
@@ -84,7 +100,15 @@ const questions = () => {
             type: 'input',
             name: 'gitHub',
             message: "Please enter your GitHub account username. (Required)",
-            when: ({ confirmEngineer }) => confirmEngineer
+            when: ({ confirmEngineer }) => confirmEngineer,
+            validate: gitHubInput => {
+                if (gitHubInput) {
+                    return true;
+                } else {
+                    console.log('Please enter your GitHub account username.');
+                    return false;
+                }
+            }
         },
         // {
         //     // confirm Intern for school information
@@ -98,7 +122,15 @@ const questions = () => {
             type: 'input',
             name: 'school',
             message: "What school do you attend? (Required)",
-            when: ({ confirmIntern }) => confirmIntern
+            when: ({ confirmIntern }) => confirmIntern,
+            validate: schoolInput => {
+                if (schoolInput) {
+                    return true;
+                } else {
+                    console.log('Please enter your school information.');
+                    return false;
+                }
+            }
         },
     ])
 
