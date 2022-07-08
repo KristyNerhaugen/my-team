@@ -35,7 +35,7 @@ function generateSite(data) {
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item">Employee Id Number: ${data.id}</li>
                     <li class="list-group-item">Employee Email: <a href="mailto:${data.email}">${data.email}</a></li>
-                    <li class="list-group-item">Engineer GitHub Account: ${data.gitHub} </li>
+                    <li class="list-group-item">Engineer GitHub Account: <a href=https://github.com/${data.gitHub}>${data.gitHub}</a></li>
             </div>
             <div class="card" style="width: 18rem;">
             <div class="card-header font-weight-bold">
