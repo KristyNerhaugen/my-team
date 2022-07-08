@@ -19,32 +19,32 @@ function generateSite(data) {
         <section> 
             <div class="card" style="width: 18rem;">
                 <div class="card-header font-weight-bold">
-                    Employee name: ${data.name}
+                    Employee name: ${data.managerName}
                     <br>Manager
                 </div>
                 <ul class="list-group list-group-flush">
-                    <li class="list-group-item">Employee Id Number: ${data.id}</li>
-                    <li class="list-group-item">Employee Email: <a href="mailto:${data.email}">${data.email}</a></li>
-                    <li class="list-group-item">Manager Office Number: </li>
+                    <li class="list-group-item">Employee Id Number: ${data.managerId}</li>
+                    <li class="list-group-item">Employee Email: <a href="mailto:${data.managerEmail}">${data.managerEmail}</a></li>
+                    <li class="list-group-item">Manager Office Number: ${data.officeNumber}</li>
             </div>
             <div class="card" style="width: 18rem;">
                 <div class="card-header font-weight-bold">
-                    Employee name: ${data.name}
+                    Employee name: ${data.engineerName}
                     <br>Engineer
                 </div>
                 <ul class="list-group list-group-flush">
-                    <li class="list-group-item">Employee Id Number: ${data.id}</li>
-                    <li class="list-group-item">Employee Email: <a href="mailto:${data.email}">${data.email}</a></li>
+                    <li class="list-group-item">Employee Id Number: ${data.engineerId}</li>
+                    <li class="list-group-item">Employee Email: <a href="mailto:${data.engineerEmail}">${data.engineerEmail}</a></li>
                     <li class="list-group-item">Engineer GitHub Account: <a href=https://github.com/${data.gitHub}>${data.gitHub}</a></li>
             </div>
             <div class="card" style="width: 18rem;">
             <div class="card-header font-weight-bold">
-                Employee name: ${data.name}
+                Employee name: ${data.internName}
                 <br>Intern
             </div>
             <ul class="list-group list-group-flush">
-                <li class="list-group-item">Employee Id Number: ${data.id}</li>
-                <li class="list-group-item">Employee Email: <a href="mailto:${data.email}">${data.email}</a></li>
+                <li class="list-group-item">Employee Id Number: ${data.internId}</li>
+                <li class="list-group-item">Employee Email: <a href="mailto:${data.internEmail}">${data.internEmail}</a></li>
                 <li class="list-group-item">Intern's school: ${data.school} </li>
         </div>
         </section>

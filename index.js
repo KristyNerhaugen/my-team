@@ -28,10 +28,11 @@ const newTeam = () => {
                 }
             }
         },
-        { // employee name
+        { // employee name for Manager
             type: 'input',
-            name: 'name',
+            name: 'managerName',
             message: 'What is the name of the employee? (Required)',
+            when: (input) => input.role === "Manager",
             validate: nameInput => {
                 if (nameInput) {
                     return true;
@@ -41,10 +42,11 @@ const newTeam = () => {
                 }
             }
         },
-        { // employee id number
+        { // employee id number for Manager
             type: 'number',
-            name: 'id',
+            name: 'managerId',
             message: 'What is the id number for this employee? (Required and only number are accepted.)',
+            when: (input) => input.role === "Manager",
             validate: idInput => {
                 if (idInput) {
                     return true;
@@ -54,10 +56,11 @@ const newTeam = () => {
                 }
             }
         },
-        { // email address
+        { // email address for Manager
             type: 'input',
-            name: 'email',
+            name: 'managerEmail',
             message: 'What is the email address for this employee? (Required)',
+            when: (input) => input.role === "Manager",
             validate: emailInput => {
                 if (emailInput) {
                     return true;
@@ -81,6 +84,48 @@ const newTeam = () => {
                 }
             }
         },
+        { // employee name for Engineer
+            type: 'input',
+            name: 'engineerName',
+            message: 'What is the name of the employee? (Required)',
+            when: (input) => input.role === "Engineer",
+            validate: nameInput => {
+                if (nameInput) {
+                    return true;
+                } else {
+                    console.log('Please enter employee name.');
+                    return false;
+                }
+            }
+        },
+        { // employee id number for Engineer
+            type: 'number',
+            name: 'engineerId',
+            message: 'What is the id number for this employee? (Required and only number are accepted.)',
+            when: (input) => input.role === "Engineer",
+            validate: idInput => {
+                if (idInput) {
+                    return true;
+                } else {
+                    console.log('Please enter the id number.');
+                    return false;
+                }
+            }
+        },
+        { // email address for Engineer
+            type: 'input',
+            name: 'engineerEmail',
+            message: 'What is the email address for this employee? (Required)',
+            when: (input) => input.role === "Engineer",
+            validate: emailInput => {
+                if (emailInput) {
+                    return true;
+                } else {
+                    console.log('Please enter the email address.');
+                    return false;
+                }
+            }
+        },
         {  // if Engineer is selected, ask for GitHub username
             type: 'input',
             name: 'gitHub',
@@ -91,6 +136,48 @@ const newTeam = () => {
                     return true;
                 } else {
                     console.log('Please enter the GitHub account username.');
+                    return false;
+                }
+            }
+        },
+        { // employee name for Intern
+            type: 'input',
+            name: 'internName',
+            message: 'What is the name of the employee? (Required)',
+            when: (input) => input.role === "Intern",
+            validate: nameInput => {
+                if (nameInput) {
+                    return true;
+                } else {
+                    console.log('Please enter employee name.');
+                    return false;
+                }
+            }
+        },
+        { // employee id number for Intern
+            type: 'number',
+            name: 'internId',
+            message: 'What is the id number for this employee? (Required and only number are accepted.)',
+            when: (input) => input.role === "Intern",
+            validate: idInput => {
+                if (idInput) {
+                    return true;
+                } else {
+                    console.log('Please enter the id number.');
+                    return false;
+                }
+            }
+        },
+        { // email address for Engineer
+            type: 'input',
+            name: 'internEmail',
+            message: 'What is the email address for this employee? (Required)',
+            when: (input) => input.role === "Intern",
+            validate: emailInput => {
+                if (emailInput) {
+                    return true;
+                } else {
+                    console.log('Please enter the email address.');
                     return false;
                 }
             }
@@ -116,12 +203,27 @@ const newTeam = () => {
             default: false
         }
     ])
+    // need to ask for a team name (teamName) somewhere to populate the title of the HTML page
+    // return inquirer.prompt([
+    //     { // ask for team name to generate the html file name
+    //         type: 'input',
+    //         name: 'teamName',
+    //         message: 'What is the name of you team? (Required)',
+    //         validate: teamNameInput => {
+    //             if (teamNameInput) {
+    //                 return true;
+    //             } else {
+    //                 console.log('Please enter a team name.');
+    //                 return false;
+    //             }
+    //         }
+    //     },
     // function to add another employee if anotherEmployee prompt is confirmed "True" OR write HTML if confirmed "False"
         .then(data => {
             if(data.anotherEmployee){
                 return newTeam();
             } else {
-                const filename = `./dist/${data.name
+                const filename = `./dist/${data.teamName
                 .split(' ')
                 .join('')}.html`;
                 fs.writeFile(filename, generateSite(data), err =>
@@ -130,7 +232,6 @@ const newTeam = () => {
             }
         });
 };
-
 
 // function to initialize app
 function init() {
