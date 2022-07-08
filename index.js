@@ -3,6 +3,7 @@ const inquirer = require('inquirer');
 const fs = require('fs');
 // Require generate-site to connect to generate-site.js
 const generateSite = require('./src/generate-site.js');
+const { writeFile } = require('./src/generate-site.js');
 const { generate } = require('rxjs');
 
 // Array of questions to get employee input
