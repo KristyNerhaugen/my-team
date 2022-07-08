@@ -1,8 +1,11 @@
 // Packages required for this application to run 
 const inquirer = require('inquirer');
 const fs = require('fs');
-const generatePage = require('./src/page-template');
+// Require generate-site to connect to generate-site.js
+const generateSite = require('./src/generate-site.js');
+const { generate } = require('rxjs');
 
+// Array of questions to get employee input
 const questions = () => {
     return inquirer.prompt([
         {
@@ -52,59 +55,61 @@ const questions = () => {
             type: 'checkbox',
             name: 'role',
             message: 'What is your employee role? Please check one role. (Required)',
-            choices: ['Manager', 'Engineer', 'Employee', 'Intern']
+            choices: ['Manager', 'Engineer', 'Intern']
         },
+        // {
+        //     // confirm Manager for office number
+        //     type: 'confirm',
+        //     name: 'confirmManager',
+        //     message: 'Are you a Manager?',
+        //     default: false
+        // },
         {
-            // confirm Manager for office number
-            type: 'confirm',
-            name: 'confirmManager',
-            message: 'Are you a Manager?',
-            default: false
-        },
-        {
-            // if Manager is confirmed, ask for office number
+            // if Manager is selected, ask for office number
             type: 'input',
             name: 'officeNumber',
-            message: "Please enter your office number.",
+            message: "Please enter your office number. (Required)",
             when: ({ confirmManager }) => confirmManager
         },
+        // {
+        //     // confirm Engineer for gitHub account
+        //     type: 'confirm',
+        //     name: 'confirmEngineer',
+        //     message: 'Are you an Engineer?',
+        //     default: false
+        // },
         {
-            // confirm Engineer for gitHub account
-            type: 'confirm',
-            name: 'confirmEngineer',
-            message: 'Are you an Engineer?',
-            default: false
-        },
-        {
-            // if Engineer is confirmed, ask for GitHub username
+            // if Engineer is selected, ask for GitHub username
             type: 'input',
             name: 'gitHub',
-            message: "Please enter your GitHub account username.",
+            message: "Please enter your GitHub account username. (Required)",
             when: ({ confirmEngineer }) => confirmEngineer
         },
+        // {
+        //     // confirm Intern for school information
+        //     type: 'confirm',
+        //     name: 'confirmIntern',
+        //     message: 'Are you an Intern?',
+        //     default: false
+        // },
         {
-            // confirm Intern for school information
-            type: 'confirm',
-            name: 'confirmIntern',
-            message: 'Are you an Intern?',
-            default: false
-        },
-        {
-            // if Intern is confirmed, ask for school information
+            // if Intern is selected, ask for school information
             type: 'input',
             name: 'school',
-            message: "What school do you attend?",
+            message: "What school do you attend? (Required)",
             when: ({ confirmIntern }) => confirmIntern
         },
     ])
 
-    // function to write HTML
-    .then(data => {
-        const filename = `./dist/${data.name}.html`;
-        fs.writeFile(filename, generateSite(data), err =>
-        err ? console.log(err) : console.log('Success! HTML page created!')
-        );
-    });
+        // function to write HTML
+        .then(data => {
+            const filename = `./dist/${data.name
+                .split(' ')
+                .join('')}.html`;
+                fs.writeFile(filename, generateSite(data), err =>
+                err ? console.log(err) : console.log('Success! HTML page created!')
+            );
+        });
 };
 
 
