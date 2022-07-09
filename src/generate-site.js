@@ -3,7 +3,7 @@ const fs = require('fs');
 // do I want to start an arry for Employee cards to push? let employeeCard = [];
 
 // Function to generate the HTML site
-// this fucntion returns employee card information to HTML page only when engineer/intern information is passed in
+// this function returns employee card information to HTML page only when engineer/intern information is passed in
 function generateSite(data) {
     if (data.role === 'none' || data.role === undefined) { 
     return `
