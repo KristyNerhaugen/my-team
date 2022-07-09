@@ -12,18 +12,17 @@ const manager = require('./lib/Manager.js');
 
 // Function to prompt array of questions to build new team
 const newTeam = () => {
-    console.log('Begin to build your employee team.');
+    console.log('Hello Manager! Please provide some information to build your employee team profile.');
     return inquirer.prompt([
-        { // employee role
-            type: 'list',
-            name: 'role',
-            message: 'What is the role of this employee? Please check one role. (Required)',
-            choices: ['Manager', 'Engineer', 'Intern'],
-            validate: roleInput => {
-                if (roleInput) {
+        { // ask for team name to generate the html file name
+            type: 'input',
+            name: 'teamName',
+            message: 'What is the name of your team? (Required)',
+            validate: teamNameInput => {
+                if (teamNameInput) {
                     return true;
                 } else {
-                    console.log('Please select employee role.');
+                    console.log('Please enter a team name.');
                     return false;
                 }
             }
@@ -31,13 +30,12 @@ const newTeam = () => {
         { // employee name for Manager
             type: 'input',
             name: 'managerName',
-            message: 'What is the name of the employee? (Required)',
-            when: (input) => input.role === "Manager",
+            message: 'What is your name? (Required)',
             validate: nameInput => {
                 if (nameInput) {
                     return true;
                 } else {
-                    console.log('Please enter employee name.');
+                    console.log('Please enter your name.');
                     return false;
                 }
             }
@@ -45,13 +43,12 @@ const newTeam = () => {
         { // employee id number for Manager
             type: 'number',
             name: 'managerId',
-            message: 'What is the id number for this employee? (Required and only number are accepted.)',
-            when: (input) => input.role === "Manager",
+            message: 'What is your employee ID number? (Required and only number are accepted.)',
             validate: idInput => {
                 if (idInput) {
                     return true;
                 } else {
-                    console.log('Please enter the id number.');
+                    console.log('Please enter your ID number. Only number values are accepted.');
                     return false;
                 }
             }
@@ -59,27 +56,39 @@ const newTeam = () => {
         { // email address for Manager
             type: 'input',
             name: 'managerEmail',
-            message: 'What is the email address for this employee? (Required)',
-            when: (input) => input.role === "Manager",
+            message: 'What is your email address? (Required)',
             validate: emailInput => {
                 if (emailInput) {
                     return true;
                 } else {
-                    console.log('Please enter the email address.');
+                    console.log('Please enter your email address.');
                     return false;
                 }
             }
         },
-        { // if Manager is selected, ask for office number
+        { // ask Manager for office number
             type: 'input',
             name: 'officeNumber',
-            message: "Please enter office number for this Manager. (Required)",
-            when: (input) => input.role === "Manager",
+            message: "What is your office number? (Required)",
             validate: officeNumberInput => {
                 if (officeNumberInput) {
                     return true;
                 } else {
-                    console.log('Please enter the office number.');
+                    console.log('Please enter your office number.');
+                    return false;
+                }
+            }
+        },
+        { // employee role
+            type: 'list',
+            name: 'role',
+            message: 'What is the role of the employee you are adding? Please check one role. (Required)',
+            choices: ['Engineer', 'Intern'],
+            validate: roleInput => {
+                if (roleInput) {
+                    return true;
+                } else {
+                    console.log('Please select employee role.');
                     return false;
                 }
             }
@@ -101,13 +110,13 @@ const newTeam = () => {
         { // employee id number for Engineer
             type: 'number',
             name: 'engineerId',
-            message: 'What is the id number for this employee? (Required and only number are accepted.)',
+            message: 'What is the ID number for this employee? (Required and only number are accepted.)',
             when: (input) => input.role === "Engineer",
             validate: idInput => {
                 if (idInput) {
                     return true;
                 } else {
-                    console.log('Please enter the id number.');
+                    console.log('Please enter the id number. Only number values are accepted.');
                     return false;
                 }
             }
@@ -157,13 +166,13 @@ const newTeam = () => {
         { // employee id number for Intern
             type: 'number',
             name: 'internId',
-            message: 'What is the id number for this employee? (Required and only number are accepted.)',
+            message: 'What is the ID number for this employee? (Required and only number are accepted.)',
             when: (input) => input.role === "Intern",
             validate: idInput => {
                 if (idInput) {
                     return true;
                 } else {
-                    console.log('Please enter the id number.');
+                    console.log('Please enter the ID number. Only number values are accepted.');
                     return false;
                 }
             }
@@ -203,21 +212,7 @@ const newTeam = () => {
             default: false
         }
     ])
-    // need to ask for a team name (teamName) somewhere to populate the title of the HTML page
-    // return inquirer.prompt([
-    //     { // ask for team name to generate the html file name
-    //         type: 'input',
-    //         name: 'teamName',
-    //         message: 'What is the name of you team? (Required)',
-    //         validate: teamNameInput => {
-    //             if (teamNameInput) {
-    //                 return true;
-    //             } else {
-    //                 console.log('Please enter a team name.');
-    //                 return false;
-    //             }
-    //         }
-    //     },
+
     // function to add another employee if anotherEmployee prompt is confirmed "True" OR write HTML if confirmed "False"
         .then(data => {
             if(data.anotherEmployee){
