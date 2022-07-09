@@ -159,7 +159,6 @@ const newTeam = () => {
             type: 'confirm',
             name: 'anotherEmployee',
             message: "Would you like to add an employee to your team list? Enter y for yes or n for no.",
-            when: (input) => input.github === data.github,
             default: false
         },
         { // employee role
@@ -237,22 +236,21 @@ const newTeam = () => {
             type: 'confirm',
             name: 'anotherEmployee',
             message: "Would you like to add an employee to your team list? Enter y for yes or n for no.",
-            when: (input) => input.school === data.school,
             default: false
         },
     ])
         // function to add another employee if anotherEmployee prompt is confirmed "True" OR write HTML if confirmed "False"
         .then(data => {
-            if (data.anotherEmployee) {
-               return newTeam;
-            } else {
+            // if (data.anotherEmployee) {
+            //    return newTeam;
+            // } else {
                 const filename = `./dist/${data.teamName
                     .split(' ')
                     .join('')}.html`;
                 fs.writeFile(filename, generateSite(data), err =>
                     err ? console.log(err) : console.log('Success! HTML page created!')
                 );
-            }
+           // }
         })
 }
 
