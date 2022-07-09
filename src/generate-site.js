@@ -5,7 +5,7 @@ const fs = require('fs');
 // Function to generate the HTML site
 // this function returns employee card information to HTML page only when engineer/intern information is passed in
 function generateSite(data) {
-    if (data.role === 'none' || data.role === undefined) { 
+    if (data.role === 'Finish building team.') { 
     return `
         <!DOCTYPE html>
         <html lang="en">
@@ -33,7 +33,7 @@ function generateSite(data) {
                 </div>
             </section>
         </body> `
-    } else if (data.role === 'Engineer') {
+    } else if (data.role === 'Add Engineer') {
         return ` 
             <!DOCTYPE html>
             <html lang="en">
@@ -67,12 +67,12 @@ function generateSite(data) {
                             <ul class="list-group list-group-flush">
                                 <li class="list-group-item">Employee Id Number: ${data.engineerId}</li>
                                 <li class="list-group-item">Employee Email: <a href="mailto:${data.engineerEmail}">${data.engineerEmail}</a></li>
-                                <li class="list-group-item">Engineer GitHub Account: <a href=https://github.com/${data.gitHub}>${data.gitHub}</a></li>
+                                <li class="list-group-item">Engineer GitHub Account: <a href="https://github.com/${data.gitHub}" target="_blank">${data.gitHub}</a></li>
                             </ul>
                 </div>
                 </section>
             </body>`
-      } else if (data.role === 'Intern') {
+      } else if (data.role === 'Add Intern') {
         return ` 
         <!DOCTYPE html>
         <html lang="en">
