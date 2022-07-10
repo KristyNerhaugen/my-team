@@ -17,19 +17,19 @@
 ### This application is to be used to generate a webpage that displays a manager's team's basic information. 
 
 ### This video shows the functionality of the application:
-### [Video Tutorial](GOOGLE DRIVE LINK HERE)
+### [Video Tutorial](https://drive.google.com/file/d/1dh9zhsSssgnzY6K5Cax6huQypqKOLm9L/view?usp=sharing)
 ### This image shows the command line user prompts that the user is required to answer:
-#### ![Screen shot of command line prompts](LINK TO IMAGE LOCATION HERE)
+#### ![Screen shot of command line prompts](/assets/images/screenshottwo.png))
 ### This image shows that the generated HTML file goes into the dist folder:
-#### ![Screen shot of dist folder](LINK TO IMAGE LOCATION HERE)
+#### ![Screen shot of dist folder](/assets/images/screenshotthree.png)
 ### This image shows a sample of the generated webpage:
-#### ![Screen shot of sample HTML](LINK TO IMAGE LOCATION HERE)
+#### ![Screen shot of sample HTML](assets/images/screenshotone.png)
 
 ## Credits 
 ### I used what I learned in the BootCamp Spot modules and BootCamp classes to create this scheduler. I especially used what I learned about inquirer and generating HTML in module 9 and what I learned about tests in module 10. I used the inquirer package for this application: [Inquirer](https://www.npmjs.com/package/inquirer#questions). I referred to the inquirer documentation frequently: [Inquirer Documentation](https://www.npmjs.com/package/inquirer#methods) and used this blog post to better understand Inquirer: [Blog post](https://pakstech.com/blog/inquirer-js/). I used this Slack Overflow example to better understand how to use "when" in an Inquirer question prompt: [Slack Overflow](https://stackoverflow.com/questions/56412516/conditional-prompt-rendering-in-inquirer). I also used Jest for this application: [Jest](https://jestjs.io/docs/getting-started). I used Bootstrap for styling the generated My Team HTML, and specifically used this site to understand Bootstrap card styles: [Bootstrap](https://getbootstrap.com/docs/4.5/components/card/ ). 
 
 ## Tests
-### To run tests on this application, you must have Jest installed. Then, you can begin tests by entering "npm start test" in the command line. The video linked above also demonstrates how to run testsnpm st. 
+### To run tests on this application, you must have Jest installed. Then, you can begin tests by entering "npm run test" in the command line. The video linked above also demonstrates how to run tests. 
 
 ## License
  ### The MIT License 
