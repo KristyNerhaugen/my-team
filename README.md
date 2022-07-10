@@ -1,7 +1,7 @@
 # Challenge Ten: My Team, Team Portfolio Generator ![MIT badge](https://img.shields.io/badge/License-MIT-yellow.svg)
 
 ## Description
-### For this challenge, I created a Team Portfolio Webpage Generator. My Team prompts the team manager to enter their name, employee ID number, email, and office number. The manager is then given the option to add an engineer, an intern, or to finish building their portfolio. If they choose to add an employee, they are prompted to enter information about that employee. When they are done building their portfolio, an HTML file titled "myteam" is generated. The generated HTML file can be found in the dist folder. An example of the generated HTML file can be found in the dist folder on this GitHub repository. There is no link to a deployed application because this application runs through the command-line.
+### updated For this challenge, I created a Team Portfolio Webpage Generator. My Team prompts the team manager to enter their name, employee ID number, email, and office number. The manager is then given the option to add an engineer, an intern, or to finish building their portfolio. If they choose to add an employee, they are prompted to enter information about that employee. When they are done building their portfolio, an HTML file titled "myteam" is generated. The generated HTML file can be found in the dist folder. An example of the generated HTML file can be found in the dist folder on this GitHub repository. There is no link to a deployed application because this application runs through the command-line.
 
 ## Table of Contents 
   ### [Installation](#installation)
