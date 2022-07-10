@@ -29,7 +29,7 @@
 ### I used what I learned in the BootCamp Spot modules and BootCamp classes to create this scheduler. I especially used what I learned about inquirer and generating HTML in module 9 and what I learned about tests in module 10. I used the inquirer package for this application: [Inquirer](https://www.npmjs.com/package/inquirer#questions). I referred to the inquirer documentation frequently: [Inquirer Documentation](https://www.npmjs.com/package/inquirer#methods) and used this blog post to better understand Inquirer: [Blog post](https://pakstech.com/blog/inquirer-js/). I used this Slack Overflow example to better understand how to use "when" in an Inquirer question prompt: [Slack Overflow](https://stackoverflow.com/questions/56412516/conditional-prompt-rendering-in-inquirer). I also used Jest for this application: [Jest](https://jestjs.io/docs/getting-started). I used Bootstrap for styling the generated My Team HTML, and specifically used this site to understand Bootstrap card styles: [Bootstrap](https://getbootstrap.com/docs/4.5/components/card/ ). 
 
 ## Tests
-### To run tests on this application, you must have Jest installed. Then, you can begin tests by entering "npm start test" in the command line. The video linked above also demonstrates how to run tests. 
+### To run tests on this application, you must have Jest installed. Then, you can begin tests by entering "npm start test" in the command line. The video linked above also demonstrates how to run testsnpm st. 
 
 ## License
  ### The MIT License 
